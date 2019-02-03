@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create new book</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Edit Product Details</title>
 </head>
 <body>
+<div class="container">
+    <h2>Edit Product Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${book}" th:action="@{/createNewBook}" method="post">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{id}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{name}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{summary}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Type:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{ISBN}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Category:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{copiesAvailable}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Price:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{copiesPurchased}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+             <form method="get" action="/welcome">
+             <button type="submit">Cancel</button>
+             </form>
+
+           <button type="button"  th:href="@{/welcome}" class="btn btn-default">Cancel</button>
 
 </body>
 </html>

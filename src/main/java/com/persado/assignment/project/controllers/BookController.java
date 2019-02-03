@@ -20,14 +20,41 @@ public class BookController {
     private BookService bookService;
 
 
-    @RequestMapping("/books")
-    public String getBooks(Model model) {
-
-        model.addAttribute("books", bookRepository.findAll());
-
-        return "books";
+    @RequestMapping(path = "/createNewBook", method = RequestMethod.GET)
+    public String createNewBook(Model model) {
+        model.addAttribute("book", new Book());
+        return "createNewBook";
     }
 
+    @RequestMapping(path = "/createNewBook", method = RequestMethod.POST)
+    public String saveNewBook(Book book){
+        bookService.saveBook(book);
+        return "redirect:/";
+    }
+
+    @RequestMapping("/welcome")
+    public String returnTo(Model model) {
+        return "welcome";
+    }
+
+
+
+
+
+
+    @RequestMapping(path = "/createNewBook/welcome", method = RequestMethod.GET )
+    public String welcomePage() {
+        return "welcome";
+    }
+
+
+
+
+    @RequestMapping(path = "/newBook", method = RequestMethod.GET)
+    public String createProduct(Model model) {
+        model.addAttribute("book", new Book());
+        return "newBook";
+    }
 
     @RequestMapping(path = "/newBook", method = RequestMethod.POST)
     public String saveProduct(Book book) {
@@ -37,10 +64,24 @@ public class BookController {
         return "redirect:/";
     }
 
-    @RequestMapping(path = "/newBook", method = RequestMethod.GET)
-    public String createProduct(Model model) {
-        model.addAttribute("book", new Book());
-        return "newBook";
+
+
+
+
+    @RequestMapping("/books")
+    public String getBooks(Model model) {
+
+        model.addAttribute("books", bookRepository.findAll());
+
+        return "books";
     }
+
+
+
+
+
+
+
+
 
 }
