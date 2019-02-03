@@ -29,12 +29,6 @@ public class BookController {
     }
 
 
-    @RequestMapping({"", "/", "/index"})
-    public String greeting() {
-        return "welcome";
-    }
-
-
     @RequestMapping(path = "/newBook", method = RequestMethod.POST)
     public String saveProduct(Book book) {
         //bookRepository.save(book);
