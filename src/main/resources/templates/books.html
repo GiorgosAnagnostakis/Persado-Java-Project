@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Book List</title>
+
+    <style>
+        body {background-color: powderblue;}
+        h1   {color: blue;}
+        p    {color: red;}
+
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -15,12 +26,40 @@
     <tr th:each="book : ${books}">
         <td th:text="${book.name}">Spring in Action</td>
         <td th:text="${book.summary}">Spring in Action</td>
+        <td th:text="${book.summary}">Spring in Action</td>
+
+        <td> <select >
+            <option th:each="dropDownItem : ${books}"
+                    th:value="${dropDownItem.copiesAvailable}"
+                    th:text="${dropDownItem.copiesAvailable}"
+        </select>   </td>
 
 
         <td><a th:href="${'/books/delete/' + book.id}" class="btn btn-default">Delete</a></td>
     </tr>
-</table>
 
+
+
+     </tr>
+
+ </table>
+
+
+ <table>
+ <tr>
+     <th>user1</th>
+
+ </tr>
+
+ <tr th:each="user : ${users}">
+
+     <th>Title</th>
+
+     <td th:text="${user.firstname}">Spring in Action</td>
+     <td th:text="${user.address}">Spring in Action</td>
+
+ </tr>
+ </table>
 
 </body>
 </html>

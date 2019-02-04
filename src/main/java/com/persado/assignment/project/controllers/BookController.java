@@ -4,6 +4,8 @@ package com.persado.assignment.project.controllers;
 
 import com.persado.assignment.project.model.Book;
 import com.persado.assignment.project.repositories.BookRepository;
+import com.persado.assignment.project.repositories.LoanRepository;
+import com.persado.assignment.project.repositories.UserRepository;
 import com.persado.assignment.project.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,13 +13,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class BookController {
 
     @Autowired
-    private BookRepository bookRepository;
+    BookRepository bookRepository;
     @Autowired
     private BookService bookService;
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    LoanRepository loanRepository;
 
 
     @RequestMapping(path = "/createNewBook", method = RequestMethod.GET)
@@ -68,11 +77,13 @@ public class BookController {
 
 
 
-    @RequestMapping("/books")
+    @RequestMapping(path = "/books", method = RequestMethod.GET)
     public String getBooks(Model model) {
 
+        model.addAttribute("users", userRepository.findAll());
         model.addAttribute("books", bookRepository.findAll());
-
+     //   model.addAttribute("users", userRepository.findAll());
+        //System.out.println(loanRepository.findAll());
         return "books";
     }
 
