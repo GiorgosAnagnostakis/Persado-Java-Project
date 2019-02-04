@@ -92,7 +92,13 @@ public class BookController {
         return "books";
     }
 
+    @RequestMapping(path = "/manageBooks", method = RequestMethod.GET)
+    public String getUsers(Model model) {
 
+        model.addAttribute("books", bookRepository.findAll());
+
+        return "manageBooks";
+    }
 
 
 

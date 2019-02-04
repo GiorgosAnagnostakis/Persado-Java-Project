@@ -18,6 +18,8 @@ public interface LoanRepository extends CrudRepository<Loans, Long> {
 
       Long countByUseridEqualsAndReturnDateIsNotNull(long id);
 
+
+
     //Long countByuseridEqualsAndReturnDateIsNull(long id);
 
 

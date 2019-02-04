@@ -18,20 +18,20 @@
 <body>
 
  <table>
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Publisher</th>
-    </tr>
-    <tr th:each="book : ${books}">
-        <td th:text="${book.name}">Spring in Action</td>
-        <td th:text="${book.summary}">Spring in Action</td>
-        <td th:text="${book.summary}">Spring in Action</td>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Publisher</th>
+                </tr>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.name}">Spring in Action</td>
+                    <td th:text="${book.summary}">Spring in Action</td>
+                    <td th:text="${book.summary}">Spring in Action</td>
 
-        <td> <select >
-            <option th:each="dropDownItem : ${books}"
-                    th:value="${dropDownItem.copiesAvailable}"
-                    th:text="${dropDownItem.copiesAvailable}"
+                    <td> <select >
+                        <option th:each="dropDownItem : ${books}"
+                                th:value="${dropDownItem.copiesAvailable}"
+                                th:text="${dropDownItem.copiesAvailable}"
 
         </select>   </td>
 
