@@ -60,7 +60,11 @@ public class UserController {
 
     @RequestMapping(path = "/manageUsers/delete/{id}", method = RequestMethod.GET)
     public String deleteProduct(@PathVariable(name = "id") Long id) {
-        userRepository.deleteById(id);
+
+        if  (loanRepository.countByUseridEqualsAndReturnDateIsNotNull(id)== 0) {
+            System.out.println("hello");
+            userRepository.deleteById(id);
+        }
         return "redirect:/manageUsers";
     }
 

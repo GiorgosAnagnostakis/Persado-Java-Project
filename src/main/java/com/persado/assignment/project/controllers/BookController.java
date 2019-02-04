@@ -13,8 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class BookController {
@@ -88,9 +86,9 @@ public class BookController {
      //   model.addAttribute("users", userRepository.findAll());
         //System.out.println(loanRepository.findAll());
         long id = 1;
-        loanRepository.countByIdEquals(id);
-        System.out.println(loanRepository.countByIdEquals(id));
-        System.out.println(loanRepository.countByIdEqualsAndReturnDateIsNotNull(id));
+       // loanRepository.countByIdEquals(id);
+        //System.out.println(loanRepository.countByIdEquals(id));
+       // System.out.println(loanRepository.countByIdEqualsAndReturnDateIsNotNull(id));
         return "books";
     }
 
