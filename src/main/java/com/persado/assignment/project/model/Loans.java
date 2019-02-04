@@ -21,15 +21,14 @@ public class Loans {
 
     @Column(name = "returnDate")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate returnDate;
+    private LocalDate returnDate = null;
 
-    @OneToOne
-    @JoinColumn(name = "book_id")
-    private Book book;
+    @Column(name = "bookid")
+    private Long bookid;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "userid")
+    private Long userid;
+
 
 
     public Long getId() {
@@ -56,19 +55,19 @@ public class Loans {
         this.returnDate = returnDate;
     }
 
-    public Book getBook() {
-        return book;
+    public Long getBookid() {
+        return bookid;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setBookid(Long bookid) {
+        this.bookid = bookid;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserid(Long userid) {
+        this.userid = userid;
     }
 }

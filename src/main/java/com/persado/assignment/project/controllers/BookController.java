@@ -41,6 +41,7 @@ public class BookController {
         return "redirect:/";
     }
 
+    //========Return button========//
     @RequestMapping("/welcome")
     public String returnTo(Model model) {
         return "welcome";
@@ -51,12 +52,14 @@ public class BookController {
 
 
 
-    @RequestMapping(path = "/createNewBook/welcome", method = RequestMethod.GET )
+
+
+  /*  @RequestMapping(path = "/createNewBook/welcome", method = RequestMethod.GET )
     public String welcomePage() {
+        System.out.println("hello");
         return "welcome";
     }
-
-
+*/
 
 
     @RequestMapping(path = "/newBook", method = RequestMethod.GET)
@@ -84,6 +87,10 @@ public class BookController {
         model.addAttribute("books", bookRepository.findAll());
      //   model.addAttribute("users", userRepository.findAll());
         //System.out.println(loanRepository.findAll());
+        long id = 1;
+        loanRepository.countByIdEquals(id);
+        System.out.println(loanRepository.countByIdEquals(id));
+        System.out.println(loanRepository.countByIdEqualsAndReturnDateIsNotNull(id));
         return "books";
     }
 
