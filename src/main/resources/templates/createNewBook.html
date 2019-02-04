@@ -10,7 +10,7 @@
         <form class="form-horizontal" th:object="${book}" th:action="@{/createNewBook}" method="post">
             <div class="form-group">
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{id}"/>
+                    <input type="hidden" class="form-control" th:field="*{id}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -20,25 +20,25 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Description:</label>
+                <label class="col-sm-2 control-label">Summary</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{summary}" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Type:</label>
+                <label class="col-sm-2 control-label">ISBN</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{ISBN}" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Category:</label>
+                <label class="col-sm-2 control-label">CopiesAvailable</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{copiesAvailable}" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Price:</label>
+                <label class="col-sm-2 control-label">CopiesPurchased</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{copiesPurchased}" />
                 </div>
