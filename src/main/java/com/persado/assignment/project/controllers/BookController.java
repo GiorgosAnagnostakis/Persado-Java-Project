@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Controller
 public class BookController {
@@ -101,6 +104,8 @@ public class BookController {
         return "manageBooks";
     }
 
+
+    //=============delete book============
     @RequestMapping(path = "/manageBooks/delete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable(name = "id") long id) {
 
@@ -112,14 +117,31 @@ public class BookController {
            System.out.println(book.getCopiesAvailable());
            bookRepository.deleteById(id);
        }
-       // bookRepository.countByIdEqualsAndCopiesAvailableEquals(1, 1);
-       // bookRepository.deleteById(id);
+
         return "redirect:/manageBooks";
     }
 
 
 
+    @RequestMapping(path = "/loanBook", method = RequestMethod.GET)
+    public String returnBooksLoan (Model model) {
 
+        List<Book> Book = new ArrayList<>();
+
+
+        int i=0;
+        model.addAttribute("books", bookRepository.findAllByCopiesAvailableGreaterThan(i));
+        model.addAttribute("users", userRepository.findAll());
+
+        return "loanBook";
+    }
+
+    @RequestMapping(value={"/manageUsers/delete/{id}/{id2}"},  method = RequestMethod.GET)
+    public String deleteBookTest(@PathVariable("id") String id,@PathVariable("id2") String id2) {
+        System.out.println(id);
+        System.out.println(id2);
+        return "redirect:/manageBooks";
+    }
 
 
 

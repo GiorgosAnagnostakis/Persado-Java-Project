@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Manage Books</title>
+
+    <style>
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,15 +48,19 @@
 
 
 
-        <td><a th:href="${'/manageBooks/delete/' + book.id }" class="btn btn-default">Delete</a></td>
+        <td><a th:href="${'/manageBooks/delete/' + book.id}" class="btn btn-default">Delete</a></td>
 
     </tr>
 
     </tr>
-
-
 
 </table>
+
+<form method="get" action="/welcome">
+    <button type="submit">Cancel</button>
+</form>
+
+
 
 </body>
 </html>
