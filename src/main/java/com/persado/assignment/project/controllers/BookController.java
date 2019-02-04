@@ -10,6 +10,7 @@ import com.persado.assignment.project.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -79,7 +80,7 @@ public class BookController {
 
 
     @RequestMapping(path = "/books", method = RequestMethod.GET)
-    public String getBooks(Model model) {
+    public String getBooks1(Model model) {
 
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("books", bookRepository.findAll());
@@ -93,12 +94,29 @@ public class BookController {
     }
 
     @RequestMapping(path = "/manageBooks", method = RequestMethod.GET)
-    public String getUsers(Model model) {
+    public String getBooks(Model model) {
 
         model.addAttribute("books", bookRepository.findAll());
 
         return "manageBooks";
     }
+
+    @RequestMapping(path = "/manageBooks/delete/{id}", method = RequestMethod.GET)
+    public String deleteBook(@PathVariable(name = "id") long id) {
+
+       Book book = bookRepository.findById(id);
+       int i = book.getCopiesAvailable();
+       int j = book.getCopiesPurchased();
+
+       if (i==j) {
+           System.out.println(book.getCopiesAvailable());
+           bookRepository.deleteById(id);
+       }
+       // bookRepository.countByIdEqualsAndCopiesAvailableEquals(1, 1);
+       // bookRepository.deleteById(id);
+        return "redirect:/manageBooks";
+    }
+
 
 
 
