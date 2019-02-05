@@ -19,6 +19,10 @@ public interface BookRepository extends CrudRepository<Book, Long> {
 // Book findAllByCopiesAvailableGreaterThan(int i);
  List<Book> findAllByCopiesAvailableGreaterThan(int i);
 
+
+
+ //List<Book> findAllBy
+
  //Long countByIdEqualsAndCopiesAvailableEquals (long id, int i);
 
 //boolean countByCopiesAvailableEqualsAndCopiesPurchased();

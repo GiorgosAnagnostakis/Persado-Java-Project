@@ -26,14 +26,6 @@
         <td th:text="${book.copiesPurchased}">copiesPurchased</td>
 
 
-        <td> <select >
-            <option th:each="user : ${users}"
-                    th:value="${user.firstname}"
-                    th:text="${user.firstname}"
-
-
-
-        </select>   </td>
 
         </option>
         <td>
@@ -41,10 +33,11 @@
             <option th:each="role : ${users}" th:value="${role.firstname}"
                     th:attr="choiceid=${role.id}" th:text="${role.firstname}">
 
-                <a th:href="@{/manageUsers/delete/{id}/{id2}(id=${book.id}, id2=${data}">SELECT</a>.
 
             </option>
+
         </select>
+
         </td>
         <td>
         <a th:href="@{/manageUsers/delete/{id}/{id2}(id=${book.id}, id2=${book.id})}">SELECT</a>.
@@ -52,29 +45,13 @@
 
 
 
-        <table>
-            <th:block th:each="user : ${users}">
-                <tr>
-                    <td th:text="${user.firstname}">...</td>
-                    <td th:text="${user.id}">...</td>
-                </tr>
-                <tr>
-                    <td colspan="2" th:text="${user.address}">...</td>
-
-
-                </tr>
-            </th:block>
-        </table>
 
 
 
     </tr>
-
-
-
-    </tr>
-
 </table>
+
+
 
 <form method="get" action="/welcome">
     <button type="submit">Cancel</button>

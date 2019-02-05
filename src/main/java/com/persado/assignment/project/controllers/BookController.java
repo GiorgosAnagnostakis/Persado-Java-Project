@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,8 +125,7 @@ public class BookController {
 
 
     @RequestMapping(path = "/loanBook", method = RequestMethod.GET)
-    public String returnBooksLoan (Model model) {
-
+    public String loanBook (Model model) {
 
 
         int i=0;
@@ -142,7 +142,18 @@ public class BookController {
         return "redirect:/manageBooks";
     }
 
+    @RequestMapping(path = "/returnBook", method = RequestMethod.GET)
+    public String returnBooks (Model model, ModelAndView modelAndView) {
 
+
+       model.addAttribute("books", bookService.booksOnLoan());
+
+
+       // model.addAttribute("books", bookRepository.findAllByCopiesAvailableGreaterThan(i));
+       // model.addAttribute("users", userRepository.findAll());
+
+        return "returnBook";
+    }
 
 
 }
