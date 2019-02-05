@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-2">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" onclick="clicked(event)" class="btn btn-primary">Save</button>
                 </div>
             </div>
 
@@ -58,6 +58,15 @@
              <form method="get" action="/welcome">
              <button type="submit">Cancel</button>
              </form>
+
+
+            <input type="submit" onclick="clicked(event)" />
+<script>
+    function clicked(e)
+    {
+        if(!confirm('Are you sure?'))e.preventDefault();
+    }
+</script>
 
            <button type="button"  th:href="@{/welcome}" class="btn btn-default">Cancel</button>
 

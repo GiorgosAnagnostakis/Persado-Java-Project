@@ -16,7 +16,8 @@ public interface BookRepository extends CrudRepository<Book, Long> {
  Long countByIdEquals(long id);
 
 
- Book findAllByCopiesAvailableGreaterThan(int i);
+// Book findAllByCopiesAvailableGreaterThan(int i);
+ List<Book> findAllByCopiesAvailableGreaterThan(int i);
 
  //Long countByIdEqualsAndCopiesAvailableEquals (long id, int i);
 

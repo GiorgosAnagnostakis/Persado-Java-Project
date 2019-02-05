@@ -126,7 +126,6 @@ public class BookController {
     @RequestMapping(path = "/loanBook", method = RequestMethod.GET)
     public String returnBooksLoan (Model model) {
 
-        List<Book> Book = new ArrayList<>();
 
 
         int i=0;
