@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Edit Product Details</title>
+    <title>Create new Book</title>
 
 
 </head>
 <body>
 <div class="container">
-    <h2>Edit Product Details</h2>
+    <h2>Create new Book</h2>
     <div>
         <form class="form-horizontal" th:object="${book}" th:action="@{/createNewBook}" method="post">
             <div class="form-group">
@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-2">
-                    <button type="submit" onclick="clicked(event)" class="btn btn-primary">Save</button>
+                    <button type="submit"  class="btn btn-primary">Save</button>
                 </div>
             </div>
 
@@ -61,15 +61,6 @@
 
 
 
-            <input type="submit" onclick="clicked(event)" />
-<script>
-    function clicked(e)
-    {
-        if(!confirm('Are you sure?'))e.preventDefault();
-    }
-</script>
-
-           <button type="button"  th:href="@{/welcome}" class="btn btn-default">Cancel</button>
 
 </body>
 </html>
