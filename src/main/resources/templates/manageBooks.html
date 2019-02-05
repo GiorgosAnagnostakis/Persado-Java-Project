@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Manage Books</title>
 
+    <script>
+        function clicked(e)
+        {
+            if(!confirm('Are you sure?'))e.preventDefault();
+        }
+    </script>
+
     <style>
 
         table {
@@ -48,7 +55,8 @@
 
 
 
-        <td><a th:href="${'/manageBooks/delete/' + book.id}" class="btn btn-default">Delete</a></td>
+        <td><a th:href="${'/manageBooks/delete/' + book.id}" <button type="submit" onclick="clicked(event)" class="btn btn-primary"></button>
+            Delete</a></td>
 
     </tr>
 
