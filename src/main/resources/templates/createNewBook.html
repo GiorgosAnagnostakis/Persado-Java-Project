@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Create new Book</title>
+
 
 
 </head>
@@ -34,9 +34,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">CopiesAvailable</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{copiesAvailable}" />
+                    <input type="hidden" class="form-control" th:field="*{copiesAvailable}" />
                 </div>
             </div>
             <div class="form-group">

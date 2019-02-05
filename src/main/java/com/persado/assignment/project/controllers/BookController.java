@@ -40,6 +40,7 @@ public class BookController {
 
     @RequestMapping(path = "/createNewBook", method = RequestMethod.POST)
     public String saveNewBook(Book book){
+        book.setCopiesAvailable(book.getCopiesPurchased()); //We set copiesAvailble=copiesPurchased
         bookService.saveBook(book);
         return "redirect:/";
     }
@@ -135,6 +136,8 @@ public class BookController {
         return "loanBook";
     }
 
+
+
     @RequestMapping(value={"/manageUsers/delete/{id}/{id2}"},  method = RequestMethod.GET)
     public String deleteBookTest(@PathVariable("id") String id,@PathVariable("id2") String id2) {
         System.out.println(id);
@@ -142,11 +145,15 @@ public class BookController {
         return "redirect:/manageBooks";
     }
 
+
+
+
     @RequestMapping(path = "/returnBook", method = RequestMethod.GET)
-    public String returnBooks (Model model, ModelAndView modelAndView) {
+    public String returnBooks (Model model) {
 
 
        model.addAttribute("books", bookService.booksOnLoan());
+
 
 
        // model.addAttribute("books", bookRepository.findAllByCopiesAvailableGreaterThan(i));
@@ -154,6 +161,8 @@ public class BookController {
 
         return "returnBook";
     }
+
+
 
 
 }

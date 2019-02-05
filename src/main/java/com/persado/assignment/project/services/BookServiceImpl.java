@@ -35,8 +35,6 @@ public class BookServiceImpl implements  BookService {
             if (book.getCopiesAvailable()<book.getCopiesPurchased()){
 
                 book.getId(); //returns book id
-
-
                 list.add(i, book);
                 i++;
             }

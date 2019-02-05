@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Loan a book</title>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+
 </head>
 <body>
 
@@ -15,6 +35,8 @@
         <th>ISBN</th>
         <th>CopiesAvailable</th>
         <th>CopiesPurchased</th>
+        <th>Users</th>
+
 
     </tr>
     <tr th:each="book : ${books}">
@@ -33,14 +55,17 @@
             <option th:each="role : ${users}" th:value="${role.firstname}"
                     th:attr="choiceid=${role.id}" th:text="${role.firstname}">
 
-
+                <p th:with="roleid=${role.id}"> </p>
             </option>
+
+
 
         </select>
 
         </td>
         <td>
         <a th:href="@{/manageUsers/delete/{id}/{id2}(id=${book.id}, id2=${book.id})}">SELECT</a>.
+
         </td>
 
 
@@ -49,6 +74,7 @@
 
 
     </tr>
+
 </table>
 
 

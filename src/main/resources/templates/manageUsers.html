@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <title>Manage Users</title>
 
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
 
 </head>
 <body>
@@ -12,23 +30,24 @@
 
 <table>
     <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Publisher</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Αddress</th>
     </tr>
     <tr th:each="user : ${users}">
-        <td th:text="${user.firstname}">Spring in Action</td>
-        <td th:text="${user.lastname}">Spring in Action</td>
-        <td th:text="${user.address}">Spring in Action</td>
+        <td th:text="${user.firstname}">firstname</td>
+        <td th:text="${user.lastname}">lastname</td>
+        <td th:text="${user.address}">address</td>
 
 
 
 
         <td><a th:href="${'/manageUsers/delete/' + user.id}" class="btn btn-default">Delete</a></td>
+
+
         <a th:href="@{/manageUsers/delete/{id}/{id2}(id=${user.firstname}, id2=${user.getLastname()})}">SELECT</a>.
 
     </tr>
-
     </tr>
 
 
