@@ -6,7 +6,8 @@ How to run.
 1)Open project with Intellij
 2)Create a database called PersadoProject
 3)Change username and password at application.properties file
-4)Run the project in order to create tables
-5)Run the data.sql script
-6)Run project again :) 
-7)Connect to http://localhost:8093
+4)add mysql.connector jar file at project structure
+5)Run the project in order to create tables
+6)Run the data.sql script
+7)Run project again :) 
+8)Connect to http://localhost:8093
