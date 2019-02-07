@@ -71,19 +71,7 @@ public class BookController {
 
 
 
-    @RequestMapping(path = "/books", method = RequestMethod.GET)
-    public String getBooks1(Model model) {
 
-        model.addAttribute("users", userRepository.findAll());
-        model.addAttribute("books", bookRepository.findAll());
-     //   model.addAttribute("users", userRepository.findAll());
-        //System.out.println(loanRepository.findAll());
-        long id = 1;
-       // loanRepository.countByIdEquals(id);
-        //System.out.println(loanRepository.countByIdEquals(id));
-       // System.out.println(loanRepository.countByIdEqualsAndReturnDateIsNotNull(id));
-        return "books";
-    }
 
     @RequestMapping(path = "/manageBooks", method = RequestMethod.GET)
     public String getBooks(Model model) {
