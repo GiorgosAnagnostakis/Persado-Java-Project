@@ -11,14 +11,9 @@ import java.util.List;
 
 public interface LoanRepository extends CrudRepository<Loans, Long> {
 
-    Long countByIdEquals (Long id);
-
-
-   // Long countByIdEqualsAndReturnDateIsNotNull(long id);
 
       Long countByUseridEqualsAndReturnDateIsNotNull(long id);
 
-      Loans findById(long id);
 
 
     //Long countByuseridEqualsAndReturnDateIsNull(long id);

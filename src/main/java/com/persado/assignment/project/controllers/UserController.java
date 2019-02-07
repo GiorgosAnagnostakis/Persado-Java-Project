@@ -2,12 +2,10 @@ package com.persado.assignment.project.controllers;
 
 // Created by Anagnostakis *\n \*/
 
-import com.persado.assignment.project.model.Book;
 import com.persado.assignment.project.model.User;
 import com.persado.assignment.project.repositories.BookRepository;
 import com.persado.assignment.project.repositories.LoanRepository;
 import com.persado.assignment.project.repositories.UserRepository;
-import com.persado.assignment.project.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +18,6 @@ public class UserController {
 
     @Autowired
     BookRepository bookRepository;
-    @Autowired
-    private BookService bookService;
     @Autowired
     UserRepository userRepository;
     @Autowired
