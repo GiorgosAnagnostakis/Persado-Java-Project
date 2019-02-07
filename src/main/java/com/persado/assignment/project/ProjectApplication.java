@@ -16,7 +16,7 @@ public class ProjectApplication extends WebSecurityConfigurerAdapter {
 	public static void main(String[] args) {
 
 		new SpringApplicationBuilder(ProjectApplication.class)
-				.properties("server.port=8092","management.port=8000","management.security.enabled=false")
+				.properties("server.port=8093","management.port=8000","management.security.enabled=false")
 				.run(args);
 	}
 

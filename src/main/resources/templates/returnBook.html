@@ -29,21 +29,15 @@
 
 <table>
     <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Summary</th>
-        <th>ISBN</th>
-        <th>CopiesAvailable</th>
-        <th>CopiesPurchased</th>
+        <th>Loan ID</th>
+        <th>LoanDate</th>
+        <th>Userid</th>
 
     </tr>
     <tr th:each="book : ${books}">
         <td th:text="${book.id}">ID</td>
-        <td th:text="${book.name}">name</td>
-        <td th:text="${book.summary}">summary</td>
-        <td th:text="${book.ISBN}">ISBN</td>
-        <td th:text="${book.copiesAvailable}">copiesAvailable</td>
-        <td th:text="${book.copiesPurchased}">copiesPurchased</td>
+        <td th:text="${book.LoanDate}">LoanDate</td>
+        <td th:text="${book.userid}">Userid</td>
 
     </tr>
 

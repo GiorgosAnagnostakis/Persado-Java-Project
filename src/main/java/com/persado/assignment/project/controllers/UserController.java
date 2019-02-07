@@ -37,6 +37,7 @@ public class UserController {
     @RequestMapping(path = "/createNewUser", method = RequestMethod.POST)
     public String saveNewUser(User user){
         userRepository.save(user);
+
         return "redirect:/";
     }
 

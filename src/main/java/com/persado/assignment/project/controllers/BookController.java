@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 @Controller
@@ -45,11 +44,6 @@ public class BookController {
         return "redirect:/";
     }
 
-    //========Return button========//
-    @RequestMapping("/welcome")
-    public String returnTo(Model model) {
-        return "welcome";
-    }
 
 
 
@@ -57,13 +51,6 @@ public class BookController {
 
 
 
-
-  /*  @RequestMapping(path = "/createNewBook/welcome", method = RequestMethod.GET )
-    public String welcomePage() {
-        System.out.println("hello");
-        return "welcome";
-    }
-*/
 
 
     @RequestMapping(path = "/newBook", method = RequestMethod.GET)
@@ -138,17 +125,17 @@ public class BookController {
 
 
 
-    @RequestMapping(value={"/manageUsers/delete/{id}/{id2}"},  method = RequestMethod.GET)
+    @RequestMapping(path={"/loanBook/loan/{id}/{id2}"},  method = RequestMethod.GET)
     public String deleteBookTest(@PathVariable("id") String id,@PathVariable("id2") String id2) {
         System.out.println(id);
         System.out.println(id2);
-        return "redirect:/manageBooks";
+        return "redirect:/loanBook";
     }
 
 
 
 
-    @RequestMapping(path = "/returnBook", method = RequestMethod.GET)
+    @RequestMapping(path = "/returnBook1", method = RequestMethod.GET)
     public String returnBooks (Model model) {
 
 
@@ -159,7 +146,7 @@ public class BookController {
        // model.addAttribute("books", bookRepository.findAllByCopiesAvailableGreaterThan(i));
        // model.addAttribute("users", userRepository.findAll());
 
-        return "returnBook";
+        return "returnBook1";
     }
 
 

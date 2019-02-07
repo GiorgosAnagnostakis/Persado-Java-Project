@@ -52,26 +52,18 @@
         </option>
         <td>
         <select>
-            <option th:each="role : ${users}" th:value="${role.firstname}"
-                    th:attr="choiceid=${role.id}" th:text="${role.firstname}">
+            <option th:each="user : ${users}" th:value="${user.firstname}"
+                    th:attr="choiceid=${user.id}" th:text="${user.firstname}">
 
-                <p th:with="roleid=${role.id}"> </p>
             </option>
-
-
 
         </select>
 
         </td>
         <td>
-        <a th:href="@{/manageUsers/delete/{id}/{id2}(id=${book.id}, id2=${book.id})}">SELECT</a>.
+        <a th:href="@{/loanBook/loan/{id}/{id2}(id=${book.id}, id2=${book.id})}">SELECT</a>.
 
         </td>
-
-
-
-
-
 
     </tr>
 
