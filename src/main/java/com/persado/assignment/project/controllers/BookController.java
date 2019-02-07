@@ -70,9 +70,6 @@ public class BookController {
 
 
 
-
-
-
     @RequestMapping(path = "/manageBooks", method = RequestMethod.GET)
     public String getBooks(Model model) {
 
